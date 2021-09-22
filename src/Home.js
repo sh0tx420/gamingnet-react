@@ -12,7 +12,7 @@ export default function Home()
                     <IconButton size="large" edge="start">
                         <MenuIcon/>
                     </IconButton>
-                    <Typography variant="h4" sx={{ fontFamily: "Ubuntu" }}>gamingnet</Typography>
+                    <Typography variant="h4" sx={{ fontFamily: "Ubuntu", fontWeight: "600", marginLeft: "4px" }}>gamingnet</Typography>
                 </Toolbar>
             </AppBar>
         </Box>
