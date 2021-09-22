@@ -1,5 +1,7 @@
 import * as React from "react";
-import { Box, AppBar, Toolbar, Typography } from "@mui/material";
+import { Box, AppBar, Toolbar, Typography, IconButton } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+
 
 export default function Home()
 {
@@ -7,7 +9,10 @@ export default function Home()
         <Box sx={{ mt: "12px", mx: "auto", width: "98%" }}>
             <AppBar position="sticky" sx={{ borderRadius: 2 }}>
                 <Toolbar>
-                    <Typography variant="h2">test</Typography>
+                    <IconButton size="large" edge="start">
+                        <MenuIcon/>
+                    </IconButton>
+                    <Typography variant="h4" sx={{ fontFamily: "Ubuntu" }}>gamingnet</Typography>
                 </Toolbar>
             </AppBar>
         </Box>
