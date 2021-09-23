@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import Home from "./Home";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 
 const theme = createTheme({
@@ -15,9 +16,11 @@ const theme = createTheme({
 });
 
 ReactDOM.render(
-    <ThemeProvider theme={theme}>
-        <CssBaseline/>
-        <Home/>
-    </ThemeProvider>,
+    <Router>
+        <ThemeProvider theme={theme}>
+            <CssBaseline/>
+            <Route exact path="/" component={Home}/>
+        </ThemeProvider>
+    </Router>,
     document.querySelector("#app")
 );
