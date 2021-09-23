@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, AppBar, Toolbar, Typography, IconButton, List, ListItem, ListItemIcon, ListItemText, Drawer } from "@mui/material";
+import { Box, AppBar, Toolbar, Typography, IconButton, List, ListItemButton, ListItemIcon, ListItemText, Drawer, Divider } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import HomeIcon from "@mui/icons-material/Home";
 
@@ -18,13 +18,15 @@ export default function Home()
 
     const list = (anchor) => (
         <div onClick={toggleDrawer(anchor, false)}>
+            <img src="/assets/sus.jpg" width="100%" height={96}/>
+            <Divider/>
             <List sx={{ width: 225 }}>
-                <ListItem button>
+                <ListItemButton>
                     <ListItemIcon>
                         <HomeIcon/>
                     </ListItemIcon>
                     <ListItemText>Home</ListItemText>
-                </ListItem>
+                </ListItemButton>
             </List>
         </div>
     );
