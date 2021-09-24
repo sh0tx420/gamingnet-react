@@ -35,6 +35,6 @@ jobs:
           server: '144.172.71.238'
           port: '784'
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          local_path: './build'
+          local_path: './build/*'
           remote_path: '/home/user/nginx'
           args: '-o ConnectTimeout=10'
