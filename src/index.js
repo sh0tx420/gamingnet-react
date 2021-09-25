@@ -1,6 +1,7 @@
 import * as React from "react";
 import ReactDOM from "react-dom";
 import Home from "./Home";
+import rtmp from "./rtmp";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -20,6 +21,7 @@ ReactDOM.render(
         <ThemeProvider theme={theme}>
             <CssBaseline/>
             <Route exact path="/" component={Home}/>
+            <Route exact path="/rtmp" component={rtmp}/>
         </ThemeProvider>
     </Router>,
     document.querySelector("#app")

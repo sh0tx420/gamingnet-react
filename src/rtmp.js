@@ -1,11 +1,12 @@
 import * as React from "react";
-import { Box, AppBar, Toolbar, Typography, IconButton, List, ListItemButton, ListItemIcon, ListItemText, Drawer, Divider } from "@mui/material";
+import { Box, AppBar, Toolbar, Typography, IconButton, List, ListItemButton, ListItemIcon, ListItemText, Drawer, Divider, Grid, Card, CardContent } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import HomeIcon from "@mui/icons-material/Home";
 import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
+import ReactHlsPlayer from "react-hls-player";
 
 
-export default function Home()
+export default function rtmp()
 {
     const [state, setState] = React.useState({});
 
@@ -58,6 +59,24 @@ export default function Home()
                     </Box>
                 </React.Fragment>
             ))}
+
+            <Box mt={3}/>
+
+            <Grid container spacing={0} direction="column" alignItems="center" justify="center">
+                <Grid item sx={{ width: "80%" }}>
+                    <Card>
+                        <CardContent>
+                            <ReactHlsPlayer
+                                src="https://rt-glb.gcdn.co/live/rtnews/playlist.m3u8"
+                                autoPlay={true}
+                                controls={true}
+                                width="100%"
+                                height="auto"
+                            />
+                        </CardContent>
+                    </Card>
+                </Grid>
+            </Grid>
         </div>
     );
 }
