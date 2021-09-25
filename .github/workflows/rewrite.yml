@@ -31,10 +31,10 @@ jobs:
       - name: Deploy application to remote server
         uses: wlixcc/SFTP-Deploy-Action@v1.0
         with:
-          username: "user"
-          server: "144.172.71.238"
-          port: "784"
+          username: 'user'
+          server: '144.172.71.238'
+          port: '784'
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          local_path: "./build"
-          remote_path: "/home/user/nginx"
-          args: "-o ConnectTimeout=10"
+          local_path: './build/*'
+          remote_path: '/home/user/nginx'
+          args: '-o ConnectTimeout=10'
