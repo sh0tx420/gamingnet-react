@@ -1,89 +1,19 @@
 import * as React from "react";
 import {
-    Box, AppBar, Toolbar, Typography, IconButton, List, ListItemButton, ListItemIcon, ListItemText, ListItem,
-    Drawer, Divider, Grid, Card, CardContent, CardActions, Collapse, TextField
+    Box, Typography, Divider,
+    Grid, Card, CardContent, TextField,
+    List, ListItem, ListItemButton, ListItemText, ListSubheader, ListItemIcon
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import HomeIcon from "@mui/icons-material/Home";
-import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ReactHlsPlayer from "react-hls-player";
-import { styled } from "@mui/material/styles";
 import { Announcement } from "@mui/icons-material";
-
-
-const ExpandMore = styled((props) => {
-    const { expand, ...other } = props;
-    expand;
-    return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-    transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-    marginLeft: "auto",
-    transition: theme.transitions.create("transform", {
-        duration: theme.transitions.duration.shortest,
-    }),
-}));
 
 
 export default function rtmp()
 {
-    const [state, setState] = React.useState({});
-    const [expanded, setExpanded] = React.useState(false);
-
-    const toggleDrawer = (anchor, open) => (event) => {
-        if (event && event.type === "keydown" && (event.key === "Tab" || event.key === "Shift")) { 
-            return;
-        }  // fixes the react re-render bug thing
-
-        setState({ ...state, [anchor]: open });
-    };
-
-    const handleExpandClick = () => {
-        setExpanded(!expanded);
-    };
-
-    const list = (anchor) => (
-        <div onClick={toggleDrawer(anchor, false)}>
-            <img src="/assets/sus.jpg" width="100%" height={96}/>
-            <Divider/>
-            <List sx={{ width: 225 }}>
-                <ListItemButton component="a" href="/">
-                    <ListItemIcon>
-                        <HomeIcon/>
-                    </ListItemIcon>
-                    <ListItemText>Home</ListItemText>
-                </ListItemButton>
-                <ListItemButton component="a" href="/rtmp">
-                    <ListItemIcon>
-                        <OndemandVideoIcon/>
-                    </ListItemIcon>
-                    <ListItemText>RTMP Stream</ListItemText>
-                </ListItemButton>
-            </List>
-        </div>
-    );
+    const [url, setUrl] = React.useState(false);
 
     return(
         <div>
-            {["left"].map((anchor) => (
-                <React.Fragment key={anchor}>
-                    <Box sx={{ mt: "12px", mx: "auto", width: "98%" }}>
-                        <AppBar position="sticky" sx={{ borderRadius: 2 }}>
-                            <Toolbar>
-                                <IconButton size="large" edge="start" onClick={toggleDrawer(anchor, true)}>
-                                    <MenuIcon/>
-                                </IconButton>
-                                <Typography variant="h4" sx={{ fontFamily: "Ubuntu", fontWeight: "600", marginLeft: "4px" }}>gamingnet</Typography>
-                            </Toolbar>
-                        </AppBar>
-
-                        <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
-                            {list(anchor)}
-                        </Drawer>
-                    </Box>
-                </React.Fragment>
-            ))}
-
             <Box mt={3}/>
 
             <Grid container spacing={1} alignItems="center" justify="center" columns={2}>
@@ -95,33 +25,28 @@ export default function rtmp()
                             <Box mt={1.2}/>
                             <Typography>Insert an URL to a RTMP stream or pick one of our preset channels.</Typography>
                             <Box mt={0.7}/>
-                            <TextField label="RTMP Link" variant="standard" sx={{ width: "100%" }}/>
-                        </CardContent>
-                        <CardActions disableSpacing>
+                            <TextField onChange={event => setUrl(event.target.value)} label="RTMP Link" variant="standard" sx={{ width: "100%" }}/>
+                            <Box mt={0.7}/>
                             <List>
+                                <ListSubheader>Channels</ListSubheader>
                                 <ListItem>
-                                    <ListItemIcon>
-                                        <Announcement/>
-                                    </ListItemIcon>
-                                    <Typography>News</Typography>
-                                    <ExpandMore expand={expanded} onClick={handleExpandClick}>
-                                        <ExpandMoreIcon/>
-                                    </ExpandMore>
+                                    <ListItemButton action={() => setUrl("https://rt-glb.gcdn.co/live/rtnews/playlist.m3u8")}>
+                                        <ListItemIcon>
+                                            <Announcement/>
+                                        </ListItemIcon>
+                                        <ListItemText primary="RT News"/>
+                                    </ListItemButton>
+                                </ListItem>
+                                <ListItem>
+                                    <ListItemButton action={() => setUrl("http://uiptv.do.am/1ufc/000000006/playlist.m3u8")}>
+                                        <ListItemIcon>
+                                            <Announcement/>
+                                        </ListItemIcon>
+                                        <ListItemText primary="Rossiya 24"/>
+                                    </ListItemButton>
                                 </ListItem>
                             </List>
-                        </CardActions>
-                        <Collapse in={expanded} timeout="auto" unmountOnEXit>
-                            <CardContent>
-                                <List>
-                                    <ListItemButton>
-                                        <ListItemIcon>
-                                            <HomeIcon/>
-                                        </ListItemIcon>
-                                        <ListItemText>sex</ListItemText>
-                                    </ListItemButton>
-                                </List>
-                            </CardContent>
-                        </Collapse>
+                        </CardContent>
                     </Card>
                 </Grid>
 
@@ -129,7 +54,7 @@ export default function rtmp()
                     <Card>
                         <CardContent>
                             <ReactHlsPlayer
-                                src="https://rt-glb.gcdn.co/live/rtnews/playlist.m3u8"
+                                src={url}
                                 autoPlay={false}
                                 controls={true}
                                 width="100%"
