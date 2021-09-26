@@ -10,8 +10,6 @@ import { Announcement } from "@mui/icons-material";
 
 export default function rtmp()
 {
-    const [url, setUrl] = React.useState(false);
-
     return(
         <div>
             <Box mt={3}/>
@@ -25,12 +23,12 @@ export default function rtmp()
                             <Box mt={1.2}/>
                             <Typography>Insert an URL to a RTMP stream or pick one of our preset channels.</Typography>
                             <Box mt={0.7}/>
-                            <TextField onChange={event => setUrl(event.target.value)} label="RTMP Link" variant="standard" sx={{ width: "100%" }}/>
+                            <TextField label="RTMP Link" variant="standard" sx={{ width: "100%" }}/>
                             <Box mt={0.7}/>
                             <List>
                                 <ListSubheader>Channels</ListSubheader>
                                 <ListItem>
-                                    <ListItemButton action={() => setUrl("https://rt-glb.gcdn.co/live/rtnews/playlist.m3u8")}>
+                                    <ListItemButton>
                                         <ListItemIcon>
                                             <Announcement/>
                                         </ListItemIcon>
@@ -38,7 +36,7 @@ export default function rtmp()
                                     </ListItemButton>
                                 </ListItem>
                                 <ListItem>
-                                    <ListItemButton action={() => setUrl("http://uiptv.do.am/1ufc/000000006/playlist.m3u8")}>
+                                    <ListItemButton>
                                         <ListItemIcon>
                                             <Announcement/>
                                         </ListItemIcon>
@@ -54,7 +52,7 @@ export default function rtmp()
                     <Card>
                         <CardContent>
                             <ReactHlsPlayer
-                                src={url}
+                                src="https://rt-glb.gcdn.co/live/rtnews/playlist.m3u8"
                                 autoPlay={false}
                                 controls={true}
                                 width="100%"
