@@ -15,6 +15,13 @@ const theme = createTheme({
             default: "#222222"
         }
     },
+    components: {
+        MuiButtonBase: {
+            defaultProps: {
+                disableRipple: true
+            }
+        }
+    }
 });
 
 ReactDOM.render(
