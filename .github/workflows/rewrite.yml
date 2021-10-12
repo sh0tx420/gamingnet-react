@@ -20,7 +20,7 @@ jobs:
           check-latest: true
 
       - name: Install dependencies
-        run: yarn add eslint eslint-plugin-react react-scripts
+        run: yarn install
 
       - name: Lint code with ESLint
         run: yarn run eslint --ext .js src/
