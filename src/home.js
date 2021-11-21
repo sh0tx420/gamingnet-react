@@ -2,7 +2,7 @@ import * as React from "react";
 import { Card, CardContent, Typography } from "@mui/material";
 
 
-export default function Home()
+export default function home()
 {
     return(
         <Card sx={{ width: 700, marginLeft: "auto", marginRight: "auto", marginTop: 5 }}>
