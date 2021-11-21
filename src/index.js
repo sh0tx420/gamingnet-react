@@ -1,7 +1,7 @@
 import * as React from "react";
 import ReactDOM from "react-dom";
 import Base from "./base";
-import Home from "./home";
+import home from "./home";
 import rtmp from "./rtmp";
 import admin from "./admin";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -30,7 +30,7 @@ ReactDOM.render(
         <ThemeProvider theme={theme}>
             <CssBaseline/>
             <Base/>
-            <Route exact path="/" component={Home}/>
+            <Route exact path="/" component={home}/>
             <Route exact path="/rtmp" component={rtmp}/>
             <Route exact path="/admin" component={admin}/>
         </ThemeProvider>
