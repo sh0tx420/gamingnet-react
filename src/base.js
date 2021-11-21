@@ -2,7 +2,7 @@ import * as React from "react";
 import { Box, AppBar, Toolbar, Typography, IconButton, List, ListItemButton, ListItemIcon, ListItemText, Drawer, Divider } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import HomeIcon from "@mui/icons-material/Home";
-import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
+import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
 
 
 export default function Base()
@@ -28,11 +28,11 @@ export default function Base()
                     </ListItemIcon>
                     <ListItemText>Home</ListItemText>
                 </ListItemButton>
-                <ListItemButton component="a" href="/rtmp">
+                <ListItemButton component="a" href="/admin">
                     <ListItemIcon>
-                        <OndemandVideoIcon/>
+                        <SupervisorAccountIcon/>
                     </ListItemIcon>
-                    <ListItemText>RTMP Stream</ListItemText>
+                    <ListItemText>Admin Panel</ListItemText>
                 </ListItemButton>
             </List>
         </div>
