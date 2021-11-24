@@ -1,14 +1,14 @@
-name: Test, build, deploy
+name: ReactJS Workflow
 
 on:
   push:
-    branches: [ rewrite ]
+    branches: [ main ]
 
 jobs:
   test-build-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Initialize job
+      - name: Initialize workflow
         uses: actions/checkout@v2
 
       - name: Setup Node.js
@@ -19,7 +19,7 @@ jobs:
           node-version: "16"
           check-latest: true
 
-      - name: Install dependencies
+      - name: Install NPM dependencies
         run: yarn install
 
       - name: Lint code with ESLint
@@ -28,12 +28,12 @@ jobs:
       - name: Build React application
         run: yarn build
 
-      - name: Deploy application to remote server
+      - name: Deploy React application
         uses: wlixcc/SFTP-Deploy-Action@v1.0
         with:
           username: 'user'
-          server: '144.172.71.238'
-          port: '784'
+          server: ${{ secrets.IP_ADDR }}
+          port: ${{ secrets.SSH_PORT }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           local_path: './build/*'
           remote_path: '/home/user/nginx'
