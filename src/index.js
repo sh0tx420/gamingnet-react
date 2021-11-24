@@ -14,6 +14,9 @@ const theme = createTheme({
         mode: "dark",
         background: {
             default: "#222222"
+        },
+        primary: {
+            main: "#930700"
         }
     },
     components: {
@@ -22,6 +25,11 @@ const theme = createTheme({
                 disableRipple: true
             }
         }
+    },
+    typography: {
+        fontFamily: [
+            "Lato"
+        ].join(",")
     }
 });
 
