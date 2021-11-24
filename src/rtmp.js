@@ -8,8 +8,7 @@ import ReactHlsPlayer from "react-hls-player";
 import { Announcement } from "@mui/icons-material";
 
 
-export default function rtmp()
-{
+export default function rtmp() {
     return(
         <div>
             <Box mt={3}/>

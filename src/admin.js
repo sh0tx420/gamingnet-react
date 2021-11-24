@@ -3,8 +3,7 @@ import { Card, CardContent, Typography, IconButton, InputAdornment, FormControl,
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 
-export default function admin()
-{
+export default function admin() {
     const [values, setValues] = React.useState({ showPassword: false });
 
     const PasswordVisibilityHandleur = () => {
@@ -14,7 +13,19 @@ export default function admin()
         });
     };
 
-    return(
+    const LoginRequestManager = () => {
+        // send http request to api server to validate login info
+        const xhr = new XMLHttpRequest();
+
+        xhr.addEventListener("load", response => {
+            console.log(response); // parse api response here, console.log to not error
+        });
+
+        xhr.open("POST", "localhost:64978");
+        xhr.send(JSON.stringify({ username: "username", passwd: "password" })); // put reactjs values from login form inside json request
+    };
+
+    return (
         <Card sx={{ width: 500, height: 300, marginLeft: "auto", marginRight: "auto", marginTop: 5 }}>
             <Typography
                 variant="h4"
@@ -43,7 +54,7 @@ export default function admin()
                     </OutlinedInput>
                 </FormControl>
                 <div style={{ display: "flex", justifyContent: "center", marginTop: 25 }}>
-                    <Button variant="contained" sx={{ width: "20%" }}>LOGIN</Button>
+                    <Button variant="contained" sx={{ width: "20%" }} onClick={LoginRequestManager()}>LOGIN</Button>
                 </div>
             </CardContent>
         </Card>

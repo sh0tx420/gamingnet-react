@@ -5,8 +5,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
 
 
-export default function Base()
-{
+export default function Base() {
     const [state, setState] = React.useState({});
 
     const toggleDrawer = (anchor, open) => (event) => {
