@@ -10,7 +10,11 @@ export default function home() {
             </Typography>
             <CardContent>
                 <Typography variant="h4" align="center">
-                    sample text
+                    IP: gamingnet.cf
+                    <br>
+                    we do gaming
+                    <br>
+                    <img src="https://wayde.tixte.com/r/joinus.jpg"/>
                 </Typography>
             </CardContent>
         </Card>
