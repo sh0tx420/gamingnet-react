@@ -11,9 +11,9 @@ export default function home() {
             <CardContent>
                 <Typography variant="h4" align="center">
                     IP: gamingnet.cf
-                    <br>
+                    <br/>
                     we do gaming
-                    <br>
+                    <br/>
                     <img src="https://wayde.tixte.com/r/joinus.jpg"/>
                 </Typography>
             </CardContent>
