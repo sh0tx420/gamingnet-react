@@ -14,7 +14,7 @@ export default function home() {
                     <br/>
                     we do gaming
                     <br/>
-                    <img width="100%" ="https://wayde.tixte.com/r/joinus.jpg"/>
+                    <img width="100%" src="https://wayde.tixte.com/r/joinus.jpg"/>
                 </Typography>
             </CardContent>
         </Card>
